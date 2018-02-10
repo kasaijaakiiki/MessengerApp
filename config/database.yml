@@ -14,7 +14,7 @@ default: &default
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password: r096163s
+  password: 
   host: localhost
   socket: /var/run/mysqld/mysqld.sock
   port: 3306
@@ -51,6 +51,7 @@ test:
 #
 production:
   <<: *default
-  database: MessengerApp_production
-  username: MessengerApp
-  password: <%= ENV['MESSENGERAPP_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
+  #database: MessengerApp_production
+  #username: MessengerApp
+  #password: <%= ENV['MESSENGERAPP_DATABASE_PASSWORD'] %>
